@@ -3,13 +3,13 @@ variable "region" {
 }
 
 variable "vpc-cidr_block" {
-    default = "10.10.0.0/16"
-  
+  default = "10.10.0.0/16"
+
 }
 
 variable "subnet-cidr_block" {
-    default = "10.10.10.0/24"
-  
+  default = "10.10.10.0/24"
+
 }
 
 variable "aws-ami" {
@@ -17,8 +17,8 @@ variable "aws-ami" {
 }
 
 variable "instance_type" {
-    default = "t2.micro"
-  
+  default = "t2.micro"
+
 }
 
 

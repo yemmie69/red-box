@@ -14,7 +14,7 @@ pipeline {
            
          terraform init
         
- terraform apply -auto-approve
+ 
 
             '''
          }
@@ -32,11 +32,9 @@ pipeline {
          
 
 
+terraform apply -auto-approve
 
-
-
-            
-            '''
+ '''
          }
       }
    }

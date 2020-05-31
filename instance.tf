@@ -15,7 +15,7 @@ mvn package
 mvn spring-boot:run -Dapp.weather.locations=Nigeria/Lagos,Nigeria/Kano
 sudo yum install tomcat -y
 
-sudo service tomcat start
+sudo service tomcat restart
 
 EOF
 
