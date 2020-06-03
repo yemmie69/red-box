@@ -8,16 +8,11 @@ resource "aws_security_group" "red-box" {
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
+  cidr_blocks =  [ "52.215.189.183"]
 
   }
 
-  ingress {
-    description = "TLS from VPC"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-
-  }
+ 
 
   egress {
     from_port   = 0
