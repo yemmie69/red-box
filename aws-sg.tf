@@ -8,7 +8,7 @@ resource "aws_security_group" "red-box" {
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
-  cidr_blocks =  [ "52.215.189.183"]
+  cidr_blocks =  [ "52.215.189.183/32"]
 
   }
 
