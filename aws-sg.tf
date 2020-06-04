@@ -1,18 +1,15 @@
 resource "aws_security_group" "red-box" {
   name        = "allow_tls"
   description = "Allow TLS inbound traffic"
-  vpc_id      = "${aws_vpc.red-box.id}"
+  vpc_id      = aws_vpc.red-box.id
 
   ingress {
     description = "TLS from VPC"
-    from_port   = 8080
-    to_port     = 8080
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
-  cidr_blocks =  [ "52.215.189.183/32"]
-
+    cidr_blocks = ["52.215.189.183/32"]
   }
-
- 
 
   egress {
     from_port   = 0
@@ -25,3 +22,4 @@ resource "aws_security_group" "red-box" {
     Name = "red-box_sg"
   }
 }
+

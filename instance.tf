@@ -1,9 +1,8 @@
 resource "aws_instance" "red-box_instance" {
-  ami           = var.aws-ami
-  instance_type = var.instance_type
+  ami           = "${var.aws-ami}"
+  instance_type = "${var.instance_type}"
 
   key_name = "terraform"
-
 
   user_data = <<EOF
 
@@ -19,7 +18,9 @@ sudo service tomcat restart
 
 EOF
 
+
   tags = {
     Name = "Red-Box"
   }
 }
+
