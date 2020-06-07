@@ -1,41 +1,19 @@
-pipeline {
-   agent any
-
-   stages {
-      stage('Terraform init') {
-          environment {
-              AWS_ACCESS_KEY_ID = credentials ("AWS_ACCESS_KEY_ID")
-               AWS_SECRET_ACCESS_KEY = credentials ("AWS_SECRET_ACCESS_KEY")
-               }
-         steps {
-            echo 'initializing terraform'
-            sh '''
-
-           
-         terraform init
-        
- 
-
-            '''
-         }
-      }
-      
-      stage('Terraform apply') {
-           environment {
-              AWS_ACCESS_KEY_ID = credentials ("AWS_ACCESS_KEY_ID")
-               AWS_SECRET_ACCESS_KEY = credentials ("AWS_SECRET_ACCESS_KEY")
-              
-          }
-         steps {
-            echo 'terraform apply'
-            sh '''
+node{
+   stage('do something with git'){
+      sshagent(credentials:['github-key']){
          
+         sh'terraform init'
+         sh'terraform apply -auto-approve'
+         //ssh -i ~/downloads/terraform.pem ec2-user@ec2-34-247-177-110.eu-west-1.compute.amazonaws.com
+         
+      }}}
 
 
-terraform apply -auto-approve
 
- '''
-         }
-      }
-   }
-}
+
+
+
+
+
+
+
